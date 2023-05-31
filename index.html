@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arithmetica</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1 id="animation"></h1>
+  <div id="demo-button-container">
+    <button id="demo-button">Show Demonstration</button>
+  </div>  
+  <div class="term" id="terminal-intro-container"></div>
+  <p id="features-container"></p>
+  <div class="term" id="terminal-features-container"></div>
+  <p id="eval-container"></p>
+  <div class="term" id="terminal-after-eval"></div>
+  <p id="factor-container"></p>
+  <div class="term" id="terminal-after-factor"></div>
+  <p id="trig-container"></p>
+  <div class="term" id="terminal-after-trig"></div>
+
+  <script>
+    // Animation of command line typing
+    function typeAnimation(text, element, delay) {
+      let index = 0;
+      const interval = setInterval(() => {
+        element.innerHTML += text[index];
+        index++;
+        element.scrollIntoView({ block: 'end' }); // Scroll to the end of the element
+        if (index === text.length) {
+          clearInterval(interval);
+        }
+      }, delay);
+    }
+
+    // When the page loads
+    window.addEventListener('load', () => {
+      const animationElement = document.getElementById('animation');
+      const demoButton = document.getElementById('demo-button');
+      const introTerminalContainer = document.getElementById('terminal-intro-container');
+      const featuresTerminalContainer = document.getElementById('terminal-features-container');
+      const evalTerminalContainer = document.getElementById('terminal-after-eval');
+      const factorTerminalContainer = document.getElementById('terminal-after-factor');
+      const trigTerminalContainer = document.getElementById('terminal-after-trig');
+      const featuresContainer = document.getElementById('features-container');
+      const evalContainer = document.getElementById('eval-container');
+      const factorContainer = document.getElementById('factor-container');
+      const trigContainer = document.getElementById('trig-container');
+
+      // Typing animation
+      typeAnimation('arithmetica', animationElement, 100);
+
+      // Show demonstration when the button is clicked
+      demoButton.addEventListener('click', () => {
+        // Hide the button
+        demoButton.style.display = 'none';
+
+      introTerminalContainer.innerHTML += '\n\n';
+      typeAnimation('$ arithmetica\narithmetica alpha (9 commits after 0.3.0)\nThis version was automatically compiled and released by GitHub Actions. Due to its bleeding edge nature, some features might be unstable.\n\nhttps://github.com/avighnac/arithmetica-tui\n\narithmetica supports showing working with steps (disabled by default), toggle this by typing "showsteps".\n\nTo get started, type help.\nIf you don\'t like reading helps, type quickstart instead.\narithmetica> ', introTerminalContainer, 5);
+
+      // // Simulate scroll event after a delay
+      // setTimeout(() => {
+      //   featuresContainer.innerHTML = '<h1 class="header">With lots of features</h1>';
+
+      //   // Create a new animated terminal-like output
+      //   typeAnimation('arithmetica> help\n\nhelp - show this help message\nquickstart - show a quickstart guide\nshowsteps - toggle showing steps (for supported functions)\neval <expression> - evaluate an arithmetic expression\nadd <number/algexpr> <number/algexpr> - add two numbers or algebraic expressions\nmul <number/algexpr> <number/algexpr> - multiply two numbers or algebraic expressions\nfactor <polynomial> - factor a polynomial\nsin/cos/tan <angle> - trigonometric functions\nasin/acos/atan <number> - inverse trigonometric functions\nsqrt <number> - square root\nexp <number> - compute e^<number>\nlog <base> <number> - compute log_<base>(<number>), or ln (<number>) if <base> is not specified\nfact <number> - computes the factorial of <number>\ntocontfrac <number> - converts <number> to a continued fraction\ngcd <number> <number> ... - computes the greatest common divisor of the given numbers\nlcm <number> <number> ... - computes the least common multiple of the given numbers\n\nFor help with a specific function, type help <function>\n\nOptions:\n  showsteps - false\n  degreemode - enabled\n  fractionseval (enable fractions during eval) - enabled\n  verboseeval (include verbose explanations with steps during eval) - enabled\n  numericeval (purely numeric evaluation during eval) - disabled\n  accuracy - 10, change with accuracy <num>\n\narithmetica>', featuresTerminalContainer, 1);
+      // }, 5800); // Delay adjusted to 4 seconds (4000 milliseconds)
+
+      // Simulate scroll event after a delay
+      setTimeout(() => {
+        evalContainer.innerHTML = '<h1 class="header">Evaluate mathematical expressions</h1><p class="func_desc">You can evaluate all different kinds of arithmetic expressions (with optional steps) using arithmetica!</p>';
+
+        typeAnimation('arithmetica> verboseeval\nverbose evaluation is now disabled\narithmetica> showsteps\nshowsteps is now true\narithmetica> eval ((8*-7--19*-4)/(5*-4-8*3))^2\n\n==> ((8 ×  - 7 -  - 19 ×  - 4)/(5 ×  - 4 - 8 × 3))^2\n==> ((8 ×  - 7 + 19 ×  - 4)/(5 ×  - 4 - 8 × 3))^2\n  ==> (8 ×  - 7 + 19 ×  - 4)/(5 ×  - 4 - 8 × 3)\n    ==>  - 56 + 19 ×  - 4\n    ==>  - 56 - 76\n    ==>  - 132\n  ==>  - 132/(5 ×  - 4 - 8 × 3)\n    ==>  - 20 - 8 × 3\n    ==>  - 20 - 24\n    ==>  - 44\n  ==>  - 132 ×  - 1/44\n  ==> 3\n==> (3)^2\n==> 9\n\narithmetica>', evalTerminalContainer, 5);
+
+        setTimeout(() => {
+          typeAnimation(' verboseeval\nverbose evaluation is now enabled\narithmetica> eval (24*20*20)/(10*4*4)\n\nTask: Simplify (24 × 20 × 20)/(10 × 4 × 4)\n\nStep #1: Simplify the inner expression 24 × 20 × 20\n==> 9600\nThe resulting expression is:\n9600/(10 × 4 × 4)\n\nStep #2: Simplify the inner expression 10 × 4 × 4\n==> 160\nThe resulting expression is:\n9600 × 1/160\n\nStep #3: Evaluate 9600 × 1/160\n==> 60\nThe resulting expression is:\n60\n\narithmetica>', evalTerminalContainer, 5);
+        }, 3000);
+        
+
+      }, 5800-2300);
+
+      // Simulate scroll event after a delay
+      setTimeout(() => {
+        factorContainer.innerHTML = '<h1 class="header">Factor polynomials</h1><p class="func_desc">Factor polynomials with steps or without!</p>';
+
+        typeAnimation('arithmetica> factor x^2+2x+1\n\n==> x^2 + 2x + 1\n==> x^2 + x + x + 1\n==> x(x + 1) + 1(x + 1)\n==> (x + 1)(x + 1)\n\narithmetica> ', factorTerminalContainer, 5);
+
+        setTimeout(() => {
+          typeAnimation('factor x^3+6x^2+11x+6\n\n==> x^3 + 6x^2 + 11x + 6\n==> x^3 + 3x^2 + 3x^2 + 9x + 2x + 6\n==> x^2(x + 3) + 3x(x + 3) + 2(x + 3)\n==> x^2 + 3x + 2)(x + 3\n==> x^2 + 2x + x + 2)(x + 3\n==> x(x + 2) + 1(x + 2))(x + 3\n==> (x + 1)(x + 2)(x + 3)\n\narithmetica> ', factorTerminalContainer, 5);
+        }, 1000);
+
+        setTimeout(() => {
+          typeAnimation('factor x^3-1\n\n==> x^3 - 1\n==> x^3 + x^2 + x - x^2 - x - 1\n==> x(x^2 + x + 1) - 1(x^2 + x + 1)\n==> (x - 1)(x^2 + x + 1)\n\n', factorTerminalContainer, 5);
+        }, 2500);
+
+        setTimeout(() => {
+          typeAnimation('arithmetica> factor x^5 + 15 x^4 + 85 x^3 + 225 x^2 + 274 x + 120\n\n==> x^5 + 15x^4 + 85x^3 + 225x^2 + 274x + 120\n==> x^5 + 5x^4 + 10x^4 + 50x^3 + 35x^3 + 175x^2 + 50x^2 + 250x + 24x + 120\n==> x^4(x + 5) + 10x^3(x + 5) + 35x^2(x + 5) + 50x(x + 5) + 24(x + 5)\n==> x^4 + 10x^3 + 35x^2 + 50x + 24)(x + 5\n==> x^4 + 4x^3 + 6x^3 + 24x^2 + 11x^2 + 44x + 6x + 24)(x + 5\n==> x^3(x + 4) + 6x^2(x + 4) + 11x(x + 4) + 6(x + 4))(x + 5\n==> x^3 + 6x^2 + 11x + 6)(x + 4)(x + 5\n==> x^3 + 3x^2 + 3x^2 + 9x + 2x + 6)(x + 4)(x + 5\n==> x^2(x + 3) + 3x(x + 3) + 2(x + 3))(x + 4)(x + 5\n==> x^2 + 3x + 2)(x + 3)(x + 4)(x + 5\n==> x^2 + 2x + x + 2)(x + 3)(x + 4)(x + 5\n==> x(x + 2) + 1(x + 2))(x + 3)(x + 4)(x + 5\n==> (x + 1)(x + 2)(x + 3)(x + 4)(x + 5)', factorTerminalContainer, 5);
+        }, 4200);
+
+      }, 12000-2300);
+
+      setTimeout(() => {
+        trigContainer.innerHTML = '<h1 class="header">Use trignometric functions</h1><p class="func_desc">Use trigonometric functions like sin, cos, tan, asin, acos, atan, etc. With the help of these, we\'re able to calculate pi!</p>';
+
+        typeAnimation('arithmetica> sin 30\n ==> sin(30°) = 0.5\narithmetica> cos 30\n ==> cos(30°) = 0.8660254038\narithmetica> tan 45\n ==> tan(45°) = 1\narithmetica> tan 60\n ==> tan(60°) = 1.7320508076\narithmetica> sin 90\n ==> sin(90°) = 1\narithmetica> asin 0.5\n ==> arcsin(0.5) = 30° = 0.5235987756 rad\narithmetica> mul 0.5235987756 6\n==> 3.1415926536\narithmetica>', trigTerminalContainer, 5);
+      }, 20000-2300);
+    });
+  });
+  </script>
+</body>
+</html>

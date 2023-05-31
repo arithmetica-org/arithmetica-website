@@ -1,0 +1,56 @@
+body {
+  background-color: #000;
+  color: #fff;
+  font-family: 'Courier New', monospace;
+  font-size: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+#animation {
+  text-align: center;
+  padding: 50px 0;
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.term {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  white-space: pre-wrap;
+  line-height: 1.4;
+  overflow: auto; /* Enable scrolling */
+}
+
+.header {
+  color: #fff;
+  text-align: center;
+}
+
+#demo-button {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+#demo-button-container {
+  display: flex;
+  justify-content: center;
+  height: 10vh; /* Adjust the height as needed */
+}
+
+.func_desc {
+  /*Center the text and make the font arial, this is for a <p>*/
+  text-align: center;
+  font-family: arial;
+}
+
+#demo-button:hover {
+  background-color: #555;
+}
