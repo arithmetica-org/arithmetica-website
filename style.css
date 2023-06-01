@@ -54,3 +54,25 @@ body {
 #demo-button:hover {
   background-color: #555;
 }
+
+#title-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+}
+
+#title-bar a {
+  text-decoration: none;
+  color: #fff;
+  padding: 10px 15px; /* Increase padding for a bigger button size */
+  margin: 0 10px; /* Add a margin of 10px on the left and right sides */
+  /* background-color: #555; Change the background color to make it more prominent */
+  border-radius: 5px; /* Add rounded corners to the buttons */
+}
+
+#title-button {
+  font-family: Arial, Helvetica, sans-serif;
+}
