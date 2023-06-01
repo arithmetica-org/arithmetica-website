@@ -14,6 +14,12 @@ body {
   font-weight: 600;
 }
 
+#arithmetica-desc {
+  text-align: center;
+  font-size: 25px;
+  font-weight: 500;
+}
+
 .term {
   padding: 20px;
   max-width: 800px;
