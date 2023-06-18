@@ -3,6 +3,29 @@
 <head>
   <title>Download Page</title>
   <link rel="stylesheet" type="text/css" href="style.css">
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    #image-list {
+      display: flex;
+      justify-content: space-evenly;
+      width: 80%;
+      margin-top: 20px;
+    }
+
+    #image-list button {
+      color: #fff;
+      margin: 20px 0 5px;
+      padding: 10px 0;
+      font-size: 1.5rem;
+      width: 240px;
+      background-color: #0066b8;
+    }
+  </style>
 </head>
 <body>
   <div id="title-bar">
@@ -14,8 +37,36 @@
     </div>
   </div>
   
-  <h1>Download Page</h1>
-  <p>This is the download page content.</p>
+  <h1 align="center" style="font-family: arial;">Download</h1>
+  
+  <div id="image-list">
+    <div>
+      <img src="images/windows-10.png" width="250" height="250">
+      <br>
+      <button id="windows_install_button">
+        Windows
+        <br>
+        <small>Windows 10, 11</small>
+      </button>
+    </div>
+    <div>
+      <img src="images/linux.png" width="200" height="240">
+      <br>
+      <button id="linux_install_button">
+        Linux
+        <br>
+        <small>Instructions</small>
+      </button>
+    </div>
+  </div>
 
+  <script type="text/javascript">
+      document.getElementById("windows_install_button").onclick = function () {
+          location = "https://github.com/arithmetica-org/arithmetica-installer/releases/latest/download/arithmetica_installer.exe"
+      };
+      document.getElementById("linux_install_button").onclick = function () {
+          location = "https://github.com/arithmetica-org/arithmetica-tui#installation"
+      };
+  </script>
 </body>
 </html>
